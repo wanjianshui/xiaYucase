@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 设置背景 */
+body{
+    /* 弹性布局 */
+    display: flex;
+    /* 位于容器中心 */
+    /* justify-content: center; */
+    /* 位于容器中心 */
+    /* align-items: center; */
+    /* 1vh”等于视口高度的“1% */
+    /* min-height: 100vh; */
+    background-color: skyblue;
+}
+/* 设置大盒子 */
+.arr1{
+    /* 相对定位 */
+    position: absolute;
+    right: 31%;
+    height: 384px;
+    border-bottom: 1px solid white;
+}
+.arr2{
+    position: relative;
+    top: 46px;
+    width: 109px;
+    height: 38px;
+    background-color: white;
+    /* 添加圆角变宽 */
+    border-radius: 100px;
+}
+/* before伪元素 必须和content一起使用 */
+.arr2::before{
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    top:-10px;
+    left:17px;
+    width: 40px;
+    height: 38px;
+    background-color: white;
+    /* 设置小圆 */
+    border-radius: 50%;
+    /*  设置大圆 */
+    box-shadow: 28px 0 0 9px white;
+}
+.rain{
+    position: relative;
+    display: flex;
+    /* 设置元素的堆叠顺序或者叫做元素层级 */
+    z-index: 1;
+    padding: 0 10px;
+    
+}
+.rain span{
+    position: relative;
+    bottom: -43px;
+    width: 2px;
+    height: 2px;
+    /* 背景颜色 */
+    background-color: white;
+    margin: 0 2px;
+    /* 设置圆 */
+    border-radius: 50%;
+    /* 设置雨点动画 */
+    animation: animate 5s linear infinite;
+    /* 给--i属性设置动态 */
+    animation-duration: calc(30s / var(--i));
+    /* 雨点掉落后向右消失 */
+    transform-origin: right;
+}
+@keyframes animate{
+    10%{
+        /* scale(1)元素缩放 */
+        transform: translateY(0) scale(1);
+    }
+    50%{
+        transform: translateY(300px) scale(1);
+    }
+    70%{
+        transform: translateY(300px) scale(1);
+    }
+    100%{
+        transform: translateY(300px) scale(0);
+    }
+
+}
